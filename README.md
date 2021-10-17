@@ -1,6 +1,6 @@
 # Kadena Node Installation
 
-**Note**: this guide assumes your machine is running Ubuntu 18.04, that you have
+**Note**: this guide assumes your machine is running Ubuntu 20.04, that you have
 `sudo` privileges, that you've bought a proper Domain Name and are pointing it
 at the Public IP Address of your machine.
 
@@ -27,7 +27,7 @@ A log of the install is stored in `/tmp/install.log` if there were any errors.
 cd /root/kda
 systemctl stop kadena-node
 rm chainweb-node
-wget https://github.com/kadena-io/chainweb-node/releases/download/2.1.1/chainweb-2.1.1.ghc-8.8.4.ubuntu-18.04.d99165c.tar.gz
-tar -xvf chainweb-2.1.1.ghc-8.8.4.ubuntu-18.04.d99165c.tar.gz
+wget https://github.com/kadena-io/chainweb-node/releases/download/2.10/chainweb-2.10.ghc-8.10.7.ubuntu-20.04.cd8cbe0.tar.gz
+tar -xvf chainweb-2.10.ghc-8.10.7.ubuntu-20.04.cd8cbe0.tar.gz
 systemctl start kadena-node
 ```
