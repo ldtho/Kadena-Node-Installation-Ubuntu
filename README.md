@@ -27,7 +27,7 @@ A log of the install is stored in `/tmp/install.log` if there were any errors.
 cd /root/kda
 systemctl stop kadena-node
 rm chainweb-node
-wget https://github.com/kadena-io/chainweb-node/releases/download/2.10/chainweb-2.10.ghc-8.10.7.ubuntu-20.04.cd8cbe0.tar.gz
-tar -xvf chainweb-2.10.ghc-8.10.7.ubuntu-20.04.cd8cbe0.tar.gz
+wget https://github.com/kadena-io/chainweb-node/releases/download/2.11/chainweb-2.11.ghc-8.10.7.ubuntu-20.04.65becb6.tar.gz
+tar -xvf chainweb-2.11.ghc-8.10.7.ubuntu-20.04.65becb6.tar.gz
 systemctl start kadena-node
 ```
