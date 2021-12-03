@@ -4,16 +4,20 @@
 `sudo` privileges, that you've bought a proper Domain Name and are pointing it
 at the Public IP Address of your machine.
 
+### Version
+
+2.11.1
+
 ### Installation 
 
 ```bash
-wget https://raw.githubusercontent.com/kadena-community/node-setup/master/installnode.sh
+wget https://raw.githubusercontent.com/kubagdynia/node-setup/master/installnode.sh
 sudo bash installnode.sh
 ```
 ### Installation without proper Domain Name
 
 ```bash
-wget https://raw.githubusercontent.com/kadena-community/node-setup/master/installnodeip.sh
+wget https://raw.githubusercontent.com/kubagdynia/node-setup/master/installnodeip.sh
 sudo bash installnodeip.sh
 ```
 
@@ -27,7 +31,7 @@ A log of the install is stored in `/tmp/install.log` if there were any errors.
 cd /root/kda
 systemctl stop kadena-node
 rm chainweb-node
-wget https://github.com/kadena-io/chainweb-node/releases/download/2.11/chainweb-2.11.ghc-8.10.7.ubuntu-20.04.65becb6.tar.gz
-tar -xvf chainweb-2.11.ghc-8.10.7.ubuntu-20.04.65becb6.tar.gz
+wget https://github.com/kadena-io/chainweb-node/releases/download/2.11.1/chainweb-2.11.1.ghc-8.10.7.ubuntu-20.04.a8ca246.tar.gz
+tar -xvf chainweb-2.11.1.ghc-8.10.7.ubuntu-20.04.a8ca246.tar.gz
 systemctl start kadena-node
 ```
