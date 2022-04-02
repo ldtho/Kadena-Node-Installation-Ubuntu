@@ -93,14 +93,14 @@ apt-get install -y curl >> $LOG_FILE 2>&1
 
 # --- NODE BINARY SETUP --- #
 
-NODE=https://github.com/kadena-io/chainweb-node/releases/download/2.13/chainweb-2.13.ghc-8.10.7.ubuntu-20.04.b4b8bda.tar.gz
+NODE=https://github.com/kadena-io/chainweb-node/releases/download/2.13.1/chainweb-2.13.1.ghc-8.10.7.ubuntu-20.04.f4cca78.tar.gz
 MINER=https://github.com/kadena-io/chainweb-miner/releases/download/v1.0.3/chainweb-miner-1.0.3-ubuntu-18.04.tar.gz
 
 decho 'Downloading Node...'
 mkdir -p /root/kda
 cd /root/kda/
 wget --no-check-certificate $NODE >> $LOG_FILE 2>&1
-tar -xvf chainweb-2.13.ghc-8.10.7.ubuntu-20.04.b4b8bda.tar.gz >> $LOG_FILE 2>&1
+tar -xvf chainweb-2.13.1.ghc-8.10.7.ubuntu-20.04.f4cca78.tar.gz >> $LOG_FILE 2>&1
 wget --no-check-certificate $MINER >> $LOG_FILE 2>&1
 tar -xvf chainweb-miner-1.0.3-ubuntu-18.04.tar.gz >> $LOG_FILE 2>&1
 
