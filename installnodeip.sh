@@ -84,6 +84,7 @@ decho "This may take a while..."
 apt-get install -y certbot >> $LOG_FILE 2>&1
 apt-get install -y librocksdb-dev >> $LOG_FILE 2>&1
 apt-get install -y curl >> $LOG_FILE 2>&1
+apt-get install -y ca-certificates libgmp10 libsnappy1v5 libtbb2 libtbb12 zlib1g liblz4-1 libbz2-1.0 libgflags2.2 zstd >> $LOG_FILE 2>&1
 
 # --- NODE BINARY SETUP --- #
 
