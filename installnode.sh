@@ -23,7 +23,6 @@ trap 'error ${LINENO}' ERR
 clear
 
 cat <<'FIG'
-
 __/\\\________/\\\__/\\\\\\\\\\\\________/\\\\\\\\\_____________________________
 __\/\\\_____/\\\//__\/\\\////////\\\____/\\\\\\\\\\\\\__________________________
 ___\/\\\__/\\\//_____\/\\\______\//\\\__/\\\/////////\\\________________________
@@ -42,7 +41,6 @@ ______\/\\\_\//\\\/\\\_\//\\\______/\\\__\/\\\_______\/\\\_\/\\\________________
 _______\/\\\__\//\\\\\\__\///\\\__/\\\____\/\\\_______/\\\__\/\\\_______________
 ________\/\\\___\//\\\\\____\///\\\\\/_____\/\\\\\\\\\\\\/___\/\\\\\\\\\\\\\\\__
 _________\///_____\/////_______\/////_______\////////////_____\///////////////__
-
 FIG
 
 # Check if executed as root user
@@ -75,6 +73,8 @@ fi
 
 # --- SYSTEM SETUP --- #
 
+VER="$(lsb_release -sr)"
+
 # Check for systemd.
 systemctl --version >/dev/null 2>&1 || { decho "systemd is required. Are you using Ubuntu 20.04?" >&2; exit 1; }
 
@@ -93,14 +93,23 @@ apt-get install -y curl >> $LOG_FILE 2>&1
 
 # --- NODE BINARY SETUP --- #
 
-NODE=https://github.com/kadena-io/chainweb-node/releases/download/2.16/chainweb-2.16.ghc-8.10.7.ubuntu-20.04.b4e1147.tar.gz
+if [[ $ver == "22.04" ]]; then
+  CHAINWEB_FILE="chainweb-2.17.ghc-8.10.7.ubuntu-22.04.323bce4.tar.gz"
+elif [[ $ver == "20.04" ]]; then
+  CHAINWEB_FILE="chainweb-2.17.ghc-8.10.7.ubuntu-20.04.323bce4.tar.gz"
+else
+  decho "Are you using Ubuntu 20.04 or 22.04?"
+  exit 1
+fi
+
+NODE=https://github.com/kadena-io/chainweb-node/releases/download/2.17/$CHAINWEB_FILE
 MINER=https://github.com/kadena-io/chainweb-miner/releases/download/v1.0.3/chainweb-miner-1.0.3-ubuntu-18.04.tar.gz
 
 decho 'Downloading Node...'
 mkdir -p /root/kda
 cd /root/kda/
 wget --no-check-certificate $NODE >> $LOG_FILE 2>&1
-tar -xvf chainweb-2.16.ghc-8.10.7.ubuntu-20.04.b4e1147.tar.gz >> $LOG_FILE 2>&1
+tar -xvf $CHAINWEB_FILE >> $LOG_FILE 2>&1
 wget --no-check-certificate $MINER >> $LOG_FILE 2>&1
 tar -xvf chainweb-miner-1.0.3-ubuntu-18.04.tar.gz >> $LOG_FILE 2>&1
 
