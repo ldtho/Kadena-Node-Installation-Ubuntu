@@ -93,9 +93,9 @@ apt-get install -y curl >> $LOG_FILE 2>&1
 
 # --- NODE BINARY SETUP --- #
 
-if [[ $ver == "22.04" ]]; then
+if [[ $VER == "22.04" ]]; then
   CHAINWEB_FILE="chainweb-2.17.ghc-8.10.7.ubuntu-22.04.323bce4.tar.gz"
-elif [[ $ver == "20.04" ]]; then
+elif [[ $VER == "20.04" ]]; then
   CHAINWEB_FILE="chainweb-2.17.ghc-8.10.7.ubuntu-20.04.323bce4.tar.gz"
 else
   decho "Are you using Ubuntu 20.04 or 22.04?"
@@ -114,7 +114,7 @@ wget --no-check-certificate $MINER >> $LOG_FILE 2>&1
 tar -xvf chainweb-miner-1.0.3-ubuntu-18.04.tar.gz >> $LOG_FILE 2>&1
 
 # Create config.yaml
-decho "Creating config files and Health check..."
+decho "Creating config files..."
 
 touch /root/kda/config.yaml
 cat << EOF > /root/kda/config.yaml
