@@ -6,7 +6,7 @@ at the Public IP Address of your machine.
 
 ### Version
 
-2.17.1
+2.17.2
 
 ### Installation 
 
@@ -31,7 +31,7 @@ A log of the install is stored in `/tmp/install.log` if there were any errors.
 cd /root/kda
 systemctl stop kadena-node
 rm chainweb-node
-wget https://github.com/kadena-io/chainweb-node/releases/download/2.17.1/chainweb-2.17.1.ghc-8.10.7.ubuntu-22.04.aaf1a20.tar.gz
-tar -xvf chainweb-2.17.1.ghc-8.10.7.ubuntu-22.04.aaf1a20.tar.gz
+wget https://github.com/kadena-io/chainweb-node/releases/download/2.17.2/chainweb-2.17.2.ghc-8.10.7.ubuntu-22.04.aa36983.tar.gz
+tar -xvf chainweb-2.17.2.ghc-8.10.7.ubuntu-22.04.aa36983.tar.gz
 systemctl start kadena-node
 ```

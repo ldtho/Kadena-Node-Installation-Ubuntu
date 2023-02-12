@@ -89,15 +89,15 @@ apt-get install -y ca-certificates libgmp10 libsnappy1v5 libtbb2 libtbb12 zlib1g
 # --- NODE BINARY SETUP --- #
 
 if [[ $VER == "22.04" ]]; then
-  CHAINWEB_FILE="chainweb-2.17.1.ghc-8.10.7.ubuntu-22.04.aaf1a20.tar.gz"
+  CHAINWEB_FILE="chainweb-2.17.2.ghc-8.10.7.ubuntu-22.04.aa36983.tar.gz"
 elif [[ $VER == "20.04" ]]; then
-  CHAINWEB_FILE="chainweb-2.17.1.ghc-8.10.7.ubuntu-20.04.aaf1a20.tar.gz"
+  CHAINWEB_FILE="chainweb-2.17.2.ghc-8.10.7.ubuntu-20.04.aa36983.tar.gz"
 else
   decho "Are you using Ubuntu 20.04 or 22.04?"
   exit 1
 fi
 
-NODE=https://github.com/kadena-io/chainweb-node/releases/download/2.17.1/$CHAINWEB_FILE
+NODE=https://github.com/kadena-io/chainweb-node/releases/download/2.17.2/$CHAINWEB_FILE
 MINER=https://github.com/kadena-io/chainweb-miner/releases/download/v1.0.3/chainweb-miner-1.0.3-ubuntu-18.04.tar.gz
 
 decho 'Downloading Node...'
@@ -117,6 +117,7 @@ chainweb:
   # The defining value of the network. To change this means being on a
   # completely independent Chainweb.
   chainwebVersion: mainnet01
+
   # The number of requests allowed per second per client to certain endpoints.
   # If these limits are crossed, you will receive a 429 HTTP error.
   throttling:
@@ -140,6 +141,7 @@ chainweb:
         predicate: keys-all
         public-keys:
         - $publickey
+
   p2p:
     # Your node's network identity.
     peer:
@@ -149,12 +151,14 @@ chainweb:
       # Filepath to the "privkey.pem" of the certificate of your domain.
       # If "null", this will be auto-generated.
       keyFile: null
+
       # You.
       hostaddress:
         # This should be your public IP or domain name.
         hostname: $whereami
         # The port you'd like to run the Node on. 443 is a safe default.
         port: 443
+
     # Initial peers to connect to in order to join the network for the first time.
     # These will share more peers and block data to your Node.
     peers:
@@ -206,6 +210,7 @@ chainweb:
           hostname: jp3.chainweb.com
           port: 443
         id: null
+
 logging:
   # All structural (JSON, etc.) logs.
   telemetryBackend:
@@ -215,14 +220,17 @@ logging:
       color: auto
       # "text" or "json"
       format: text
+
   # Simple text logs.
   backend:
     handle: stdout
     color: auto
     # "text" or "json"
     format: text
+
   logger:
     log_level: warn
+
   filter:
     rules:
       - key: component
@@ -248,6 +256,7 @@ touch /etc/systemd/system/kadena-node.service
 cat <<EOF > /etc/systemd/system/kadena-node.service
 [Unit]
 Description=Kadena Node
+
 [Service]
 User=root
 KillMode=process
@@ -257,6 +266,7 @@ ExecStart=/root/kda/chainweb-node --config-file=/root/kda/config.yaml
 Restart=always
 RestartSec=5
 LimitNOFILE=65536
+
 [Install]
 WantedBy=multi-user.target
 EOF
