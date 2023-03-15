@@ -95,15 +95,15 @@ apt-get install -y ca-certificates libgmp10 libsnappy1v5 libtbb2 libtbb12 zlib1g
 # --- NODE BINARY SETUP --- #
 
 if [[ $VER == "22.04" ]]; then
-  CHAINWEB_FILE="chainweb-2.18.ghc-8.10.7.ubuntu-22.04.19b34e5.tar.gz"
+  CHAINWEB_FILE="chainweb-2.18.1.ghc-8.10.7.ubuntu-22.04.09b4dc6.tar.gz"
 elif [[ $VER == "20.04" ]]; then
-  CHAINWEB_FILE="chainweb-2.18.ghc-8.10.7.ubuntu-20.04.19b34e5.tar.gz"
+  CHAINWEB_FILE="chainweb-2.18.1.ghc-8.10.7.ubuntu-20.04.09b4dc6.tar.gz"
 else
   decho "Are you using Ubuntu 20.04 or 22.04?"
   exit 1
 fi
 
-NODE=https://github.com/kadena-io/chainweb-node/releases/download/2.18/$CHAINWEB_FILE
+NODE=https://github.com/kadena-io/chainweb-node/releases/download/2.18.1/$CHAINWEB_FILE
 MINER=https://github.com/kadena-io/chainweb-miner/releases/download/v1.0.3/chainweb-miner-1.0.3-ubuntu-18.04.tar.gz
 
 decho 'Downloading Node...'
@@ -278,18 +278,18 @@ WantedBy=multi-user.target
 EOF
 
 # --- HEALTH CHECK --- #
-# touch /root/kda/health.sh
-# chmod +x /root/kda/health.sh
-# cat <<EOF > /root/kda/health.sh
-# #!/bin/bash
-# status_code=\$(timeout 5m curl --write-out %{http_code} https://$whereami:443/chainweb/0.0/mainnet01/health-check --silent --output /dev/null)
-# echo \$status_code
-# if [[ "\$status_code" -ne 200 ]]; then
-#    echo "No response from API: Restarting the Node"
-#    systemctl daemon-reload
-#    systemctl restart kadena-node
-# fi
-# EOF
+#touch /root/kda/health.sh
+#chmod +x /root/kda/health.sh
+#cat <<EOF > /root/kda/health.sh
+##!/bin/bash
+#status_code=\$(timeout 5m curl --write-out %{http_code} https://$whereami:443/chainweb/0.0/mainnet01/health-check/cut --silent --output /dev/null)
+#echo \$status_code
+#if [[ "\$status_code" -ne 200 ]]; then
+#  echo "No response from API: Restarting the Node"
+#  systemctl daemon-reload
+#  systemctl restart kadena-node
+#fi
+#EOF
 
 # # --- HEALTH CHECK CRONTAB --- #
 # echo "*/5 * * * * /root/kda/health.sh >/root/kda/health.out 2>/root/kda/health.err" >> newCrontab
