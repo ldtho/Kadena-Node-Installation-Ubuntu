@@ -320,3 +320,5 @@ echo 'Installation completed!'
 echo 'Type "nano /root/kda/config.yaml" to edit your config if necessary.'
 echo 'CTRL+x to save, Y to confirm, then "systemctl restart kadena-node".'
 echo 'Type "journalctl -fu kadena-node" to see the node log.'
+
+

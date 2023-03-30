@@ -304,21 +304,21 @@ systemctl daemon-reload
 systemctl enable kadena-node
 
 # --- DOWNLOAD A DATABASE SNAPSHOT --- #
-#echo "Downloading recent database snapshot..."
-#echo "This may take a while..."
+echo "Downloading recent database snapshot..."
+echo "This may take a while..."
 
 # Send a stop message, just in case.
 systemctl stop kadena-node
 # No-op if it already exists.
-#mkdir -p /root/.local/share/chainweb-node/mainnet01/0/
-#cd /root/.local/share/chainweb-node/mainnet01/0/
+mkdir -p /root/.local/share/chainweb-node/mainnet01/0/
+cd /root/.local/share/chainweb-node/mainnet01/0/
 # Remove these, in case they were already there.
-#rm -rf rocksDb sqlite
+rm -rf rocksDb sqlite
 # Fetch the snapshot.
-#wget https://fluxnodeservice.com/kda_bootstrap.tar.gz
-#tar xvfz kda_bootstrap.tar.gz >> $LOG_FILE 2>&1
+wget https://fluxnodeservice.com/kda_bootstrap.tar.gz
+tar xvfz kda_bootstrap.tar.gz >> $LOG_FILE 2>&1
 systemctl start kadena-node
-#clear
+clear
 
 # Installation Completed
 echo 'Installation completed!'
@@ -326,3 +326,5 @@ echo 'Installation completed!'
 echo 'Type "nano /root/kda/config.yaml" to edit your config if necessary.'
 echo 'CTRL+x to save, Y to confirm, then "systemctl restart kadena-node".'
 echo 'Type "journalctl -fu kadena-node" to see the node log.'
+
+

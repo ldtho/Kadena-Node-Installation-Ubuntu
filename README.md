@@ -9,15 +9,17 @@ at the Public IP Address of your machine.
 2.18.1
 
 ### Installation 
-
 ```bash
-wget https://raw.githubusercontent.com/kubagdynia/node-setup/master/installnode.sh
+git clone https://github.com/ldtho/Kadena-Node-Installation-Ubuntu.git
+cd Kadena-Node-Installation-Ubuntu
+```
+### Installation with proper Domain Name
+```bash
 sudo bash installnode.sh
 ```
 ### Installation without proper Domain Name
 
 ```bash
-wget https://raw.githubusercontent.com/kubagdynia/node-setup/master/installnodeip.sh
 sudo bash installnodeip.sh
 ```
 
