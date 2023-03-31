@@ -59,7 +59,7 @@ if [[ $whereami == "" ]]; then
     exit 3
 fi
 
-read -e -p "Please enter your Public Key: " publickey
+read -e -p "Please enter your Public Key (the part after the 'k:' in your account: " publickey
 if [[ $publickey == "" ]]; then
     decho "WARNING: No public key given, exiting!"
     exit 3
@@ -143,7 +143,7 @@ chainweb:
       # When "mode: private", this is a list of miner account names who are
       # allowed to have work generated for them.
       miners:
-      - account: $publickey
+      - account: k:$publickey
         predicate: keys-all
         public-keys:
         - $publickey

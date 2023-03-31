@@ -38,10 +38,10 @@ Description=Kadena Mining Client
 
 [Service]
 User=root
-KillMode=process
+KillMode=control-group
 KillSignal=SIGINT
 WorkingDirectory=/root/kda/chainweb-mining-client
-ExecStart=/root/kda/chainweb-mining-client/chainweb-mining-client --config-file=/root/kda/chainweb-mining-client/config.yml
+ExecStart=cabal run chainweb-mining-client -- --config-file=/root/kda/chainweb-mining-client/config.yml
 Restart=always
 RestartSec=5
 LimitNOFILE=65536
