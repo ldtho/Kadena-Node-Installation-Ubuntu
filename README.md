@@ -1,7 +1,7 @@
 # Kadena Node Installation
 
 **Note**: this guide assumes your machine is running Ubuntu 20.04 or 22.04, that you have
-`sudo` privileges, that you've bought a proper Domain Name and are pointing it
+`sudo` privileges (```sudo -s```), that you've bought a proper Domain Name and are pointing it
 at the Public IP Address of your machine.
 
 ### Version
